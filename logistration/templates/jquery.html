@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery Manipulating DOM</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#changeColor").click(function() {
+                $("p").css("color", "blue");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>JQuery Manipulating DOM</h1>
+    <p>This is a paragraph.</p>
+    <p>This is a paragraph.</p>
+    <p>This is a paragraph.</p>
+    <span>This is a paragraph.</span>
+    <p>This is a paragraph.</p>
+    <button id="changeColor">Change Color</button>
+</body>
+</html>

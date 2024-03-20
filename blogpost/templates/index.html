@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+    {% if posts %}
+        <h1>Posts</h1>
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if token %}
+        <h1>Token</h1>
+        <span>{{ token }}</span>
+    {% endif %}
+</body>
+</html>

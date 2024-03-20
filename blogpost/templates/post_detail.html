@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    {% if post.comments %}
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in post.comments %}
+        <li>{{ comment.content }}</li>
+        {% endfor %} 
+    </ul>
+    {% endif %}
+
+    <h2>Add Comment</h2>
+    <form method="post" action="{% url 'add_comment' post_id=post.id %}">
+        {% csrf_token %}
+        <textarea name="content" rows="4" cols="50"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

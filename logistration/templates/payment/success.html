@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Payment Success</h2>
+  <p>Your payment of {{ transaction.amount }} was successful!</p>
+  <p>Transaction ID: {{ transaction.id }}</p>
+{% endblock %}

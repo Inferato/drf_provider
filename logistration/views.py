@@ -135,5 +135,5 @@ class CheckUserExistsView(View):
 
 
 def some_useless_func():
-    unused_var = 'test linter'
+    unused_var = 'test linter'  # noqa
     return "Some output"

@@ -3,10 +3,10 @@ name: CI/CD for Django Project
 on:
   push:
     branches:
-      - main
+      - origin
   pull_request:
     branches:
-      - main
+      - origin
 
 jobs:
   lint-and-test:

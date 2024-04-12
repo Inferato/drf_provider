@@ -64,7 +64,7 @@ jobs:
 
       - name: Generate Test Report
         run: |
-          coverage html
+          coverage html -i
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v2

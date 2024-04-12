@@ -78,12 +78,8 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Example',
-        'USER': 'superuser',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -134,7 +130,7 @@ LOGIN_URL = '/login/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-DOCS_ROOT = MEDIA_URL+'documents'
+DOCS_ROOT = MEDIA_URL + 'documents'
 
 HTTP_SCHEMA = 'http://'
 BLOG_URL = 'localhost:9000'

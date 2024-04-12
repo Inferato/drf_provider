@@ -6,4 +6,4 @@ class LogistrationConfig(AppConfig):
     name = 'logistration'
 
     def ready(self):
-        import logistration.signals
+        import logistration.signals  # noqa

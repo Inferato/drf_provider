@@ -1,9 +1,8 @@
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required  # noqa
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.http import JsonResponse
 from django.views import View
@@ -29,7 +28,7 @@ class LoginView(View):
             login(request, user)
             return redirect('payment')
         return render(request, self.template_name, {'form': form})
-    
+
 
 def logout_view(request):
     logout(request)
@@ -67,12 +66,12 @@ class RegistrationView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            user = form.save()
+            # user = form.save()
             # login(request, user)
             messages.success(request, 'Ваш обліковий запис був успішно створений. Увійдіть зараз!')
             return redirect('login')
         return render(request, self.template_name, {'form': form})
-    
+
 
 class UserProfileView(LoginRequiredMixin, View):
     template_name = 'user_profile.html'
@@ -91,19 +90,20 @@ class UserProfileView(LoginRequiredMixin, View):
             messages.success(request, 'Ваш обліковий запис був успішно оновлений!')
             return redirect('user_profile')
         return render(request, self.template_name, {'form': form, 'user_profile': user_profile})
-    
+
+
 class UploadDocuments(View):
     form = DocumentForm
 
     def get(self, request, *args, **kwargs):
         return render(request, 'upload_document.html', {'form': self.form()})
-    
+
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('payment')
-        
+
 
 class CheckUserExistsView(View):
     def get(self, request):
@@ -118,12 +118,11 @@ class CheckUserExistsView(View):
 
         if email:
             email_exists = User.objects.filter(email=email).exists()
-        
+
         user_check_response = {
             'user_check_errors': username_exists or email_exists
         }
 
-        
         data = {
             'user_check_errors': username_exists or email_exists,
             'username_exists': username_exists,
@@ -132,5 +131,3 @@ class CheckUserExistsView(View):
         user_check_response['data'] = data
 
         return JsonResponse(user_check_response)
-
-        

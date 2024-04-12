@@ -66,6 +66,7 @@ jobs:
 
       - name: Generate Test Report
         run: |
+          coverage run --source='.' manage.py test
           coverage html -i
 
       - name: Upload Test Report

@@ -9,7 +9,7 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import PaymentForm, RegistrationForm, UserProfileForm, DocumentForm
 from .models import UserProfile
-from django.conf import settings
+from django.conf import settings # noqa
 
 User = get_user_model()
 
@@ -72,6 +72,7 @@ class RegistrationView(View):
             messages.success(request, 'Ваш обліковий запис був успішно створений. Увійдіть зараз!')
             return redirect('login')
         return render(request, self.template_name, {'form': form})
+
 
 class UserProfileView(LoginRequiredMixin, View):
     template_name = 'user_profile.html'

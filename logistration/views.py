@@ -9,6 +9,7 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import PaymentForm, RegistrationForm, UserProfileForm, DocumentForm
 from .models import UserProfile
+from django.conf import settings # noqa
 
 User = get_user_model()
 
@@ -131,3 +132,8 @@ class CheckUserExistsView(View):
         user_check_response['data'] = data
 
         return JsonResponse(user_check_response)
+
+
+def some_useless_func():
+    unused_var = 'test linter'
+    return "Some output"

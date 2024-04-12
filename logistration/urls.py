@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import (
-    LoginView, 
-    RegistrationView, 
-    logout_view, 
+    LoginView,
+    RegistrationView,
+    logout_view,
     UserProfileView,
     ProcessPaymentView,
     UploadDocuments,

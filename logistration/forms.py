@@ -17,10 +17,12 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'bio']
 
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['bio']
+
 
 class DocumentForm(forms.ModelForm):
     class Meta:

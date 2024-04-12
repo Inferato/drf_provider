@@ -96,10 +96,6 @@ class UploadDocuments(View):
     form = DocumentForm
 
     def get(self, request, *args, **kwargs):
-        from django.conf import settings
-
-        print(settings.BASE_DIR)
-        print(settings.MEDIA_ROOT)
         return render(request, 'upload_document.html', {'form': self.form()})
     
     def post(self, request, *args, **kwargs):

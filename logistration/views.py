@@ -131,3 +131,7 @@ class CheckUserExistsView(View):
         user_check_response['data'] = data
 
         return JsonResponse(user_check_response)
+
+
+def some_useless_func():
+    return "Some output"

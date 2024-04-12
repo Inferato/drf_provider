@@ -3,10 +3,10 @@ name: CI/CD for Django Project
 on:
   push:
     branches:
-      - main
+      - origin
   pull_request:
     branches:
-      - main
+      - origin
 
 jobs:
   lint-and-test:
@@ -26,6 +26,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install flake8
 
       - name: Run Linting
         run: |

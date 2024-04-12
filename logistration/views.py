@@ -135,4 +135,5 @@ class CheckUserExistsView(View):
 
 
 def some_useless_func():
+    unused_var = 'test linter'
     return "Some output"
